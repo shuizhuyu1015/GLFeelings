@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "g-like": "/components/like/index"
+  }
+}
