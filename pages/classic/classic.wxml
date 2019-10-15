@@ -1,2 +1,2 @@
-<g-like>
+<g-like like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" >
 </g-like>

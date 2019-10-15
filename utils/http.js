@@ -1,8 +1,8 @@
 import { config } from '../config.js'
 const tips = {
-  1: '',
-  1005: 'appkey',
-  3000: ''
+  1: '抱歉，出现了错误',
+  1005: 'appkey无效，请前往www.7yue.pro申请或者GitHub搜索',
+  3000: '期刊不存在'
 }
 
 class HTTP {
