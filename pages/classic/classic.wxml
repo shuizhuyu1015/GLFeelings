@@ -1,2 +1,2 @@
-<g-like like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" >
-</g-like>
+<v-like like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+<v-movie img="{{classicData.image}}" content="{{classicData.content}}" />
