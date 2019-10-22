@@ -11,7 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classic: {}
+    classicData: {},
+    latest: true,
+    first: false
   },
 
   /**
@@ -23,11 +25,6 @@ Page({
         classicData: res
       })
     })
-  },
-
-  onLike: function(event) {
-    let behavior = event.detail.behavior;
-    likeModel.like(behavior, this.data.classicData.id, this.data.classicData.type);
   },
 
   /**
@@ -77,5 +74,38 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 点击喜欢按钮
+   */
+  onLike: function (event) {
+    let behavior = event.detail.behavior;
+    likeModel.like(behavior, this.data.classicData.id, this.data.classicData.type);
+  },
+
+  /**
+   * 点击底部导航向左
+   */
+  onNext: function () {
+    this._updateClassic('next');
+  },
+
+  /**
+   * 点击底部导航向右
+   */
+  onPrevious: function () {
+    this._updateClassic('previous');
+  },
+
+  _updateClassic(nextOrPrevious) {
+    let index = this.data.classicData.index;
+    classicModel.getClassic(index, nextOrPrevious, (res) => {
+      this.setData({
+        classicData: res,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
+      })
+    });
   }
 })

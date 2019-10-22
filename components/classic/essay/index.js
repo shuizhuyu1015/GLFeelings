@@ -1,8 +1,12 @@
-// components/classic/index.js
-import {classicBeh} from '../classic-beh.js';
+// components/classic/essay/index.js
+import { classicBeh } from '../classic-beh.js';
 
 Component({
+  /**
+   * 组件间代码复用机制
+   */
   behaviors: [classicBeh],
+
   /**
    * 组件的属性列表
    */

@@ -7,7 +7,7 @@ const tips = {
 
 class HTTP {
   request(params) {
-    if (!params) {
+    if (!params.method) {
       params.method = 'GET';
     }
     wx.request({
