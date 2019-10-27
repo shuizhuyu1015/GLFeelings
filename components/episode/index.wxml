@@ -1,4 +1,5 @@
 <!--components/episode/index.wxml-->
+<!-- 期数组件 -->
 <view class="episode-container">
   <view class="index-container">
     <text class="plain">NO.</text>

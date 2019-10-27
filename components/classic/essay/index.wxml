@@ -1,5 +1,6 @@
 <!--components/classic/essay/index.wxml-->
-<view class="classic-container">
+<!-- 句子组件 -->
+<view hidden="{{hidden}}" class="classic-container">
   <image class="classic-img" src="{{img}}" mode="aspectFill"></image>
   <image class="classic-tag" src="images/essay@tag.png"></image>
   <text class="classic-content">{{content}}</text>

@@ -13,7 +13,9 @@ Page({
   data: {
     classicData: {},
     latest: true,
-    first: false
+    first: false,
+    likeStatus: false,
+    likeCount: 0
   },
 
   /**
@@ -22,7 +24,9 @@ Page({
   onLoad: function (options) {
     classicModel.getLatest(res => {
       this.setData({
-        classicData: res
+        classicData: res,
+        likeStatus: res.like_status,
+        likeCount: res.fav_nums
       })
     })
   },
@@ -101,11 +105,21 @@ Page({
   _updateClassic(nextOrPrevious) {
     let index = this.data.classicData.index;
     classicModel.getClassic(index, nextOrPrevious, (res) => {
+      this._getLikeStatus(res.id, res.type);
       this.setData({
         classicData: res,
         latest: classicModel.isLatest(res.index),
         first: classicModel.isFirst(res.index)
       })
     });
+  },
+
+  _getLikeStatus(artID, category){
+    likeModel.getClassicLikeStatus(artID, category, (res) => {
+      this.setData({
+        likeStatus: res.like_status,
+        likeCount: res.fav_nums
+      })
+    })
   }
 })

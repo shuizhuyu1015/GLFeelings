@@ -19,9 +19,9 @@ class HTTP {
       },
       method: params.method,
       success: (res) => {
+        console.log(res.data);
         let code = res.statusCode.toString();
         if (code.startsWith('2')) {
-          console.log(res.data);
           params.success && params.success(res.data);
         } else {
           let error_code = res.data.error_code;
@@ -37,7 +37,7 @@ class HTTP {
 
   _show_error(error_code) {
     wx.showToast({
-      title: tips[error_code],
+      title: tips[error_code] ? tips[error_code] : tips[1],
       icon: 'none',
       duration: 2000
     })
